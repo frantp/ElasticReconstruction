@@ -1,6 +1,6 @@
 #include <vector>
 #include <fstream>
-#include "external/Eigen/Core"
+#include <Eigen/Core>
 
 struct FramedTransformation {
 	int id1_;

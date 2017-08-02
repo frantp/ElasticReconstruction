@@ -1,19 +1,20 @@
 #pragma once
 
-#include "external/Eigen/Core"
-#include "external/Eigen/SparseCore"
-#include "external/Eigen/Dense"
-#include "external/Eigen/IterativeLinearSolvers"
-#include "external/Eigen/CholmodSupport"
-#include "external/unsupported/Eigen/SparseExtra"
-#include <hash_map>
+#include <Eigen/Core>
+#include <Eigen/SparseCore>
+#include <Eigen/Dense>
+#include <Eigen/IterativeLinearSolvers>
+#include <Eigen/CholmodSupport>
+#include <unsupported/Eigen/SparseExtra>
+#include <unordered_map>
+#include <utility>
 #include <vector>
 
 typedef Eigen::Triplet< double > Triplet;
 typedef std::vector< Triplet > TripletVector;
-typedef stdext::hash_map< int, int > HashMap;
-typedef stdext::hash_map< int, int >::const_iterator HashMapIterator;
-typedef pair< int, int > IntPair;
+typedef std::unordered_map< int, int > HashMap;
+typedef std::unordered_map< int, int >::const_iterator HashMapIterator;
+typedef std::pair< int, int > IntPair;
 
 class HashSparseMatrix
 {
@@ -22,7 +23,7 @@ public:
 	~HashSparseMatrix(void);
 
 public:
-	HashMap map_;
+	std::unordered_map<int, int> map_;
 	int ioffset_, joffset_;
 
 public:

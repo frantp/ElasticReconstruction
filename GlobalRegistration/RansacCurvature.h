@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cmath>
 #include <pcl/registration/registration.h>
 #include <pcl/registration/transformation_estimation_svd.h>
 #include <pcl/registration/transformation_validation.h>
@@ -23,6 +24,10 @@ public:
 	using Registration<PointSource, PointTarget>::transformation_estimation_;
 	using Registration<PointSource, PointTarget>::getFitnessScore;
 	using Registration<PointSource, PointTarget>::converged_;
+	using Registration<PointSource, PointTarget>::indices_;
+	using Registration<PointSource, PointTarget>::previous_transformation_;
+	using Registration<PointSource, PointTarget>::initCompute;
+	using Registration<PointSource, PointTarget>::deinitCompute;
 
 	Eigen::Matrix< double, 6, 6 > information_source_;
 	Eigen::Matrix< double, 6, 6 > information_target_;
@@ -581,7 +586,7 @@ template <typename PointSource, typename PointTarget, typename FeatureT> void
 
 			transformation_estimation_->estimateRigidTransformation ( temp_input, idxs, temp_target, idxs, transformation_);
 
-			if ( _isnanf( transformation_( 0, 0 ) ) ) {
+			if ( std::isnan( transformation_( 0, 0 ) ) ) {
 				++num_normal_rejections;
 				continue;
 			}

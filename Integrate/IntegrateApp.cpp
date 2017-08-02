@@ -1,5 +1,6 @@
-#include "StdAfx.h"
 #include "IntegrateApp.h"
+
+using namespace std;
 
 
 CIntegrateApp::CIntegrateApp( pcl::Grabber & source, bool use_device )
@@ -96,13 +97,15 @@ void CIntegrateApp::StartMainLoop( bool triggered_capture )
 	{
 		boost::unique_lock< boost::mutex > lock( data_ready_mutex_ );
 	
-		capture_.start (); // Start stream
+		if ( !triggered_capture ) {
+			capture_.start (); // Start stream
+		}
     
 		int ten_has_data_fail_then_we_call_it_a_day = 0;
 		while ( !exit_ ) {
 			bool has_data;
 			if ( triggered_capture ) {
-				( ( pcl::ONIGrabber * ) &capture_ )->trigger(); // Triggers new frame
+				capture_.start(); // Triggers new frame
 			}
 			has_data = data_ready_cond_.timed_wait( lock, boost::posix_time::millisec( 300 ) );
 

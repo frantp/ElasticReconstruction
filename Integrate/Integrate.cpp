@@ -1,13 +1,14 @@
 // Integrate.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
-
+#include <iostream>
 #include <pcl/console/parse.h>
 #include <pcl/common/time.h>
 #include <boost/filesystem.hpp>
 
 #include "IntegrateApp.h"
+
+using namespace std;
 
 int print_help ()
 {

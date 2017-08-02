@@ -1,7 +1,7 @@
 // GlobalRegistration.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
+#include <iostream>
 #include <Eigen/Core>
 #include <pcl/point_types.h>
 #include <pcl/point_cloud.h>
@@ -129,7 +129,7 @@ void do_all( int num )
 
 			pcl::console::print_highlight ("Starting alignment...\n");
 			RansacCurvature<PointNT,PointNT,FeatureT> align;
-			align.setInputCloud (object);
+			align.setInputSource (object);
 			align.setSourceFeatures (object_features);
 			align.setInputTarget (scene);
 			align.setTargetFeatures (scene_features);
@@ -300,7 +300,7 @@ void create_odometry( int num )
 
 		pcl::console::print_highlight ("Starting alignment...\n");
 		RansacCurvature<PointNT,PointNT,FeatureT> align;
-		align.setInputCloud (object);
+		align.setInputSource (object);
 		align.setSourceFeatures (object_features);
 		align.setInputTarget (scene);
 		align.setTargetFeatures (scene_features);

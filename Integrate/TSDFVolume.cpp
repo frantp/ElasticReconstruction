@@ -1,8 +1,8 @@
-#include "StdAfx.h"
 #include "TSDFVolume.h"
 
 #include <pcl/point_types.h>
 #include <pcl/io/pcd_io.h>
+#include <omp.h>
 
 TSDFVolume::TSDFVolume( int cols, int rows )
 	: cols_( cols )

@@ -1,6 +1,1 @@
-/ipch/
-/*.sdf
-/*.suo
-/x64/
-*.asv
-GlobalRegistration/x64/
+build/

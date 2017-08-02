@@ -3,6 +3,7 @@
 #include <vector>
 #include <fstream>
 #include <Eigen/Core>
+#include <utility>
 
 typedef std::pair< int, int > IntPair;
 

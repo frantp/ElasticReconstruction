@@ -1,10 +1,11 @@
 #pragma once
 
 #include <vector>
-#include <hash_set>
-#include "external/Eigen/Core"
-#include "external/Eigen/Geometry"
-#include "external/Eigen/SparseCore"
+#include <unordered_set>
+#include <utility>
+#include <Eigen/Core>
+#include <Eigen/Geometry>
+#include <Eigen/SparseCore>
 #include "HashSparseMatrix.h"
 #include "PointCloud.h"
 #include "RGBDTrajectory.h"
@@ -75,7 +76,7 @@ public:
 	std::vector< Correspondence > corres_;
 
 	// black listed fragments
-	stdext::hash_set< int > blacklist_;
+	std::unordered_set< int > blacklist_;
 	std::vector< int > absolute2relative_map_;
 	std::vector< int > relative2absolute_map_;
 
