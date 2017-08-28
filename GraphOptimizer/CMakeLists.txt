@@ -28,6 +28,8 @@ add_executable(GraphOptimizer
     vertigo/vertex_switchLinear.cpp
 )
 
+add_dependencies(GraphOptimizer g2o)
+
 target_link_libraries(GraphOptimizer
     ${PCL_LIBRARIES}
     ${Boost_LIBRARIES}
