@@ -4,6 +4,7 @@ externalproject_add(g2o
     PREFIX "external/g2o"
     GIT_REPOSITORY "https://github.com/RainerKuemmerle/g2o.git"
     GIT_TAG "17fce87df9d5b2aa7b4239be1fbac9d40c95d72f"
+    CMAKE_ARGS "-DG2O_BUILD_EXAMPLES=OFF -DG2O_BUILD_APPS=OFF"
     INSTALL_COMMAND ""
 )
 
