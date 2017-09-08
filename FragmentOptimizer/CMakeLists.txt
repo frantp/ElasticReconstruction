@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.1)
 
 project(FragmentOptimizer)
 
+find_package(SuiteSparse REQUIRED)
+
 include_directories(
     ${PCL_INCLUDE_DIRS}
     ${Eigen3_INCLUDE_DIRS}

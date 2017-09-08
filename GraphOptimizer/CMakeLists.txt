@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.1)
 
 project(GraphOptimizer)
 
+find_package(SuiteSparse REQUIRED)
+include(BuildG2O)
+
 include_directories(
     ${PCL_INCLUDE_DIRS}
     ${Eigen3_INCLUDE_DIRS}
